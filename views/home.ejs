@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Welcome!</title>
+</head>
+<body>
+  <%- include('nav.ejs', {isLoggedIn:isLoggedIn}) %>
+    <br>
+    <form action="/home/1" method="GET" id="search">
+      <select name="region" id="region">
+        <% if (region === "all") { %> <option value="all" selected>All</option> <% } else { %> <option value="all">All</option> <% } %>
+        <% if (region === "atlantic") { %> <option value="atlantic" selected>Atlantic</option> <% } else { %> <option value="atlantic">Atlantic</option> <% } %>
+        <% if (region === "central") { %> <option value="central" selected>Central</option> <% } else { %> <option value="central">Central</option> <% } %>
+        <% if (region === "southeast") { %> <option value="southeast" selected>Southeast</option> <% } else { %> <option value="southeast">Southeast</option> <% } %>
+        <% if (region === "northwest") { %> <option value="northwest" selected>Northwest</option> <% } else { %> <option value="northwest">Northwest</option> <% } %>
+        <% if (region === "pacific") { %> <option value="pacific" selected>Pacific</option> <% } else { %> <option value="pacific">Pacific</option> <% } %>
+        <% if (region === "southwest") { %> <option value="southwest" selected>Southwest</option> <% } else { %> <option value="southwest">Southwest</option> <% } %>
+      </select>
+      <input type="text" name="search" value="<%= search %>">
+      <button type="submit">search</button>
+    </form>
+    <div id="pagination" class="inline">
+      <% for (let page of pages) { %>
+        <a href="/home/<%= page %>/?search=<%= search %>" id="page">page <%= page %></a>
+      <% } %>
+    </div>
+    <br>
+    <br>
+    <div class="container" id="productContainer">
+      <% if (empty) { %> <p id="empty">No result found</p> <% } %>
+      <% for (let item of products) { %> 
+        <div id="productItem">
+          <h3><%= item.title %></h3>
+          <img src="<%= item.imgURL %>" alt="<%= item.title %>">
+          <div id="productOperation">
+            <form action="/product/<%= item.title %>" method="GET" class="inline"><button type="submit">Description</button></form>
+            <% if (likeList.includes(item.title)) { %> 
+              <form action="/like/removeLike/<%= item.title %>" method="GET" class="inline"><button type="submit">Unlike it</button></form>
+            <% } else { %>
+              <form action="/like/addLike/<%= item.title %>" method="GET" class="inline"><button type="submit">Like it</button></form>
+            <% } %>
+          </div>
+        </div>
+      <% } %>
+    </div>
+</body>
+</html>
+

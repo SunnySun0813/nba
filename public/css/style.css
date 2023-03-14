@@ -1,0 +1,196 @@
+* {
+  padding: none;
+  margin: none;
+  box-sizing: border-box;
+  font-family: Tahoma, sans-serif;
+}
+
+.inline {
+  display: inline;
+}
+
+nav {
+  background-color: black;
+  padding: 20px 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  padding: 20px 20px;
+  letter-spacing: 2px;
+}
+
+nav a:hover {
+  background-color: white;
+  color: black;
+  text-decoration: none;
+}
+
+#likeIt {
+  border: 2px solid black;
+  font-size: 20px;
+  padding: 5px 12px;
+  background-color: lightgrey;
+}
+
+#description {
+  border: 2px solid black;
+  padding: 3px 8px;
+  background-color: lightgrey;
+}
+
+#switchAccount {
+  border: 2px solid black;
+  padding: 3px 8px;
+  background-color: lightgrey;
+}
+
+#productContainer {
+  border: 1px solid black;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#empty {
+  padding: 10px;
+}
+
+#productItem {
+  padding: 10px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 300px;
+  min-height: 300px;
+  margin: 20px 10px 20px;
+  background-color: lightgray;
+}
+
+#productOperation button {
+  margin: 0 10px;
+}
+
+#page {
+  margin: 3px;
+  text-decoration: underline;
+}
+
+#pagination {
+  margin: 42%;
+}
+
+#search {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+#detail {
+  margin: auto;
+  width: 500px;
+  height: auto;
+}
+
+#gallery {
+  margin: 0 20%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+}
+
+#galleryItem {
+  width:25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#region {
+  height: 29px;
+}
+
+#sameRegion {
+  margin: 10px 20%;
+}
+
+#admin {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  min-width: 600px;
+  margin: auto;
+  padding: 30px;
+}
+
+#usersList {
+  border: 1px solid black;
+  margin-right: 30px;
+  width: auto;
+  padding: 0 20px;
+  font-weight: bold;
+  font-size: 25px;
+  color: black;
+  text-decoration: none;
+}
+
+#usersLike {
+  border: 1px solid black;
+  width: 100%;
+  padding: 20px;
+}
+
+#user {
+  text-decoration: none;
+  display:block;
+  margin: 15px 0;
+}
+
+#likeSet {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#likeCard {
+  margin: 20px;
+}
+
+button:hover, a:hover {
+  cursor: pointer;
+}
+
+.loginTitle {
+  font-weight: bold;
+  margin-bottom: 60px;  
+}
+
+.login {
+  margin: 30px auto;
+  padding: 100px;
+  height: auto;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.loginInput {
+  width: 100%;
+  margin: 3px 0 20px;
+}
+
+.error {
+  color: red;
+}
+
+#newAccount {
+  margin-top: 10px;
+}
+
+
+

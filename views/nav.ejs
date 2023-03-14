@@ -1,0 +1,6 @@
+<nav>
+    <a href="/home/1">HOME</a>
+    <a href="/like">MY LIKE</a>
+    <% if (isLoggedIn === "true") { %> <a href="/login/logout">LOG OUT</a> <% } %>
+    <% if (isLoggedIn === "false") { %> <a href="/login">LOG IN</a> <% } %>
+</nav>

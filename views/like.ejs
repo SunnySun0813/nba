@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>My like list</title>
+</head>
+<body>
+    <%- include('nav.ejs', {isLoggedIn:isLoggedIn}) %>
+    <br>
+    <div class="container" id="productContainer">
+        <% if (empty) { %> <p id="empty">No result found</p> <% } %>
+        <% for (let item of products) { %> 
+          <div id="productItem">
+            <h3><%= item.title %></h3>
+            <img src="<%= item.imgURL %>" alt="<%= item.title %>">
+            <div id="productOperation">
+              <% if (likeList.includes(item.title)) { %> 
+                <form action="/like/removeLike/<%= item.title %>" method="GET" class="inline"><button type="submit">Unlike it</button></form>
+              <% } else { %>
+                <form action="/like/addLike/<%= item.title %>" method="GET" class="inline"><button type="submit">Like it</button></form>
+              <% } %>
+            </div>
+          </div>
+        <% } %>
+      </div>
+</body>
+</html>
